@@ -1,0 +1,17 @@
+[{
+  "name": "Sorting Algorithms",
+  "sub":{"name":[
+    "Bubble Sort",
+    "Insertion Sort",
+    "Selection Sort",
+    "Merge Sort",
+    "Heap Sort",
+    "Quick Sort"
+  ]}
+},
+{
+  "name": "Known Algorithms",
+  "sub":{"name":[
+    "Dijkstra's algorithm"
+  ]}
+}]

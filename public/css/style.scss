@@ -1,0 +1,116 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  flex-direction: row;
+  
+  width: 100vw;
+  height:100vh;
+  background-color: beige;
+  section{
+    left:0;
+    width: 50vw;
+    height:90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 10px 20px;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    h1{
+      display: flex;
+      justify-content: left;
+    }
+    ul{
+
+      display: flex;
+      flex-direction: column;
+      list-style-type: square;
+      justify-content: left;
+      margin: 5px 0;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      width: 100%; 
+      .title{
+        font-size: large;
+        padding: 5px 0;
+        font-weight: bold;
+      }
+      .drop-down-manual,.drop-down-random{
+        
+        input[type="text"]{
+          display: flex;
+          justify-content: left;
+          margin: 20px 5px;
+          width: 300px;
+        }
+        input{
+          display: flex;
+          justify-content: left;
+          margin: 20px 5px;
+          width: 40px;
+        }
+        label{
+          display:flex;
+          padding-right: 30px;
+        }
+        label:last-child{
+          margin-bottom: 30px;
+        }
+      }
+      input{
+        display: flex;
+        justify-content: left;
+        margin: 20px 5px;
+        width: 20px;
+        
+        
+      }
+      .btn{
+        display: flex;
+        position:relative;
+        min-width: min-content;
+        max-width: max-content;
+        justify-content: left;
+        cursor: pointer;
+        box-shadow: 2px 2px 2px black;
+        padding: 5px 10px;
+        margin: 5px 0;
+        
+      }
+    }
+    .confirm{
+      p{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        width: 200px;
+        padding: 5px 10px;
+      }
+      button{
+        display: flex;
+        justify-content: left;
+        min-width: min-content;
+        max-width: max-content;
+        margin: 20px 0;
+        padding: 5px 10px;
+        cursor: pointer;
+        box-shadow: 2px 2px 2px black;
+      }
+    }
+    
+    
+  }
+  
+}
+
+
+
+
+
+

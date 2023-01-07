@@ -1,0 +1,111 @@
+#control-container{
+  display: flex;
+  position: absolute;
+  bottom: 5vh;
+  width: 66vw;
+  height: 15vh;
+  .btn-group{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 5px;
+    .btn{
+      font-weight: bold;
+      margin: 5px;
+      padding: 5px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 1px black;
+      transition:all .2s;
+      &:hover{
+        box-shadow: 0 0;
+        transform:translate(2px,2px);
+      }
+    }
+  }
+  .select-group{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin: 5px;
+    select{
+      margin: 5px;
+      option{
+        font-size:medium;
+      }
+    }
+  }
+  .input-group{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin: 5px;
+    .size-value,.range-value-1,.range-value-2{
+      color: red;
+    }
+    #size-slider{
+      cursor: pointer;
+    }
+    .ui-slider{
+      margin: 5px;
+      height: 8px;
+      width: 200px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .ui-slider-handle{
+      height: 15px;
+      width: 15px;
+      border-radius: 15px;
+      background-color: blue;
+      border: 0;
+    } 
+    .ui-slider-range {
+      background: cyan;
+    }
+  }
+  #notice{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 10px 20px;
+    .legend{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .color{
+      display: flex;
+      width: 20px;
+      height:20px;
+      border: 1px solid black;
+      margin: 3px;
+    }
+    .text{
+      display: flex;
+      margin: 3px;
+      font-weight: 700;
+      font-family:Arial, Helvetica, sans-serif;
+      font-style: italic;
+    }
+    .color-pivot{
+      background-color: yellow;
+    }
+    .color-compare{
+      background-color: greenyellow;
+    }
+    .color-swap{
+      background-color: red;
+    }
+    .color-sorted{
+      background-color: rgb(184, 76, 184);
+    }
+  }
+}

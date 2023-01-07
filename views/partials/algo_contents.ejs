@@ -1,0 +1,22 @@
+<style>
+  ol{margin-left: 20px;}
+  .inactive{display:none;}
+  p{margin: 5px 0;}
+</style>
+
+<div id="Dijkstra" class="<%= data!=="Dijkstra's algorithm" ? 'inactive' : '' %>">
+  <h1>Dijkstra's algorithm</h1>
+  <p><b>Dijkstra's algorithm</b> an algorithm for <mark>finding the shortest paths</mark> between nodes in a graph.
+  </p>
+  <p>Algorithm</p>
+  <ol>
+    <li>Mark all nodes unvisited, and create a set of all the unvisited nodes, then assign each node "infinite" distance value except of initial node, which distance is zero. Set initial node as current node.</li>
+    <li>For current node, consider all of its unvisited neighbors and calculate their tentative distances through the current node. Compare the newly calculated tentative distance to the one currently assigned to the neighbor and assign it the smaller one.</li>
+    <li>When we are done considering all of the unvisited neighbors of the current node, mark the current node as visited and remove it from the unvisited set. A visited node will never be checked again.</li>
+    <li>If the destination/Goal node has been marked visited or if the smallest tentative distance among the nodes in the unvisited set is infinity, then stop. The algorithm has finished.</li>
+    <li>Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new current node, and go back to step 2.</li>
+  </ol>
+  <p>
+    Dijkstra's algorithm uses a data structure for storing and querying partial solutions(See step 2) sorted by distance from the start. We use Min-Heap for the Demo.
+  </p>
+</div>

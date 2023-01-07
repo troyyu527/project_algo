@@ -1,0 +1,24 @@
+[{
+  "name": "Stack"
+},
+{
+  "name": "Queue"
+},
+{
+  "name": "Linked List"
+},
+{
+  "name": "Array"
+},
+{
+  "name": "Hash Table"
+},
+{
+  "name": "Tree"
+},
+{
+  "name": "Heap"
+},
+{
+  "name": "Graph"
+}]

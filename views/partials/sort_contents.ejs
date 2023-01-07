@@ -1,0 +1,121 @@
+<style>
+  ul{margin-left: 20px;}
+  .inactive{display:none;}
+  p{margin: 5px 0;}
+  p::first-letter{font-size: large;}
+  a{cursor: pointer;text-decoration: underline;}
+</style>
+
+<div id="bubble" class="<%= data!=='Bubble Sort' ? 'inactive' : '' %>">
+  <h1>Bubble Sort</h1>
+  <p>
+    <b>Bubble sort</b>, sometimes referred to as <b>sinking sort</b>. is a simple algorithm performs 
+    poorly in real world use and is used primarily as an educational tool. More efficient algorithms 
+    such as <a href="/Quick%20Sort">quick sort</a>, timsort, or <a href="/Merge%20Sort">merge sort</a> are used.
+  </p>
+  <p>
+    This sorting algorithm that repeatedly steps through the input list element by element, 
+    <mark>comparing the current element with the one after it, swapping their values if needed.</mark> These passes through 
+    the list are repeated until no swaps had to be performed during a pass, meaning that the list has become 
+    fully sorted. The algorithm, which is a comparison sort, is named for the way the larger elements "bubble" 
+    up to the top of the list.
+  </p>
+  <b><p>Complexity</p></b>
+  <ul>
+    <b><li>Worst Case Performance: &#927(n&#178;)</li></b>
+    <b><li>Best Case Performance: &#927(n)</li></b>
+    <b><li>Average Case Performance: &#927(n&#178;)</li></b>
+  </ul>
+  
+</div>
+<div id="insertion" class="<%= data!=='Insertion Sort' ? 'inactive' : '' %>">
+  <h1>Insertion Sort</h1>
+  <p><b>Insertion sort</b> is a simple sorting algorithm that builds the final sorted array (or list) one item 
+    at a time by comparisons. It is much less efficient on large lists than more advanced algorithms such as <a href="/Quick%20Sort">quick sort</a>, 
+    <a href="/Heap%20Sort">heap sort</a>, or <a href="/Merge%20Sort">merge sort</a>.
+  </p>
+  <p>
+    This sorting algorithm iterates, consuming one input element each repetition, and grows a sorted output list. At each iteration, 
+    <mark>insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts 
+      it there. It repeats until no input elements remain.</mark> 
+  </p>
+  <b><p>Complexity</p></b>
+  <ul>
+    <b><li>Worst-case Performance: &#927(n&#178;)</li></b>
+    <b><li>Best-case Performance: &#927(n)</li></b>
+    <b><li>Average Performance: &#927(n&#178;)</li></b>
+  </ul>
+</div>
+<div id="selection" class="<%= data!=='Selection Sort' ? 'inactive' : '' %>">
+  <h1>Selection Sort</h1>
+  <p><b>Selection sort</b> is an in-place comparison sorting algorithm. It generally performs worse than the similar <a href="/Insertion%20Sort">insertion sort</a>. 
+    Selection sort is noted for its simplicity and has performance advantages over more complicated algorithms in certain situations, 
+    particularly where auxiliary memory is limited.
+  </p>
+  <p>
+    The algorithm divides the input list into two parts: a sorted sublist of items which is built up from left to right at the front 
+    (left) of the list and a sublist of the remaining unsorted items that occupy the rest of the list. Initially, the sorted sublist 
+    is empty and the unsorted sublist is the entire input list. <mark>The algorithm proceeds by finding the smallest (or largest, depending 
+      on sorting order) element in the unsorted sublist, exchanging (swapping) it with the leftmost unsorted element (putting it in sorted 
+      order), and moving the sublist boundaries one element to the right.</mark> 
+  </p>
+  <b><p>Complexity</p></b>
+  <ul>
+    <b><li>Worst-case Performance: &#927(n&#178;)</li></b>
+    <b><li>Best-case Performance: &#927(n&#178;)</li></b>
+    <b><li>Average Performance: &#927(n&#178;)</li></b>
+  </ul>
+</div>
+<div id="merge" class="<%= data!=='Merge Sort' ? 'inactive' : '' %>">
+  <h1>Merge Sort</h1>
+  <p><b>Merge sort</b> is an efficient, general-purpose, and comparison-based, divide-and-conquer sorting algorithm. Most implementations produce a stable sort, 
+    which means that the order of equal elements is the same in the input and output.
+  </p>
+  <p>
+    This algorithm first <mark>divide the unsorted list into n sublists, each containing one element (a list of one element is considered sorted).
+      And repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining.</mark> This will be the sorted list.
+  </p>
+  <b><p>Complexity</p></b>
+  <ul>
+    <b><li>Worst-case Performance: &#927(nlogn)</li></b>
+    <b><li>Best-case Performance: &#927(nlogn)</li></b>
+    <b><li>Average Performance: &#927(nlogn)</li></b>
+  </ul>
+</div>
+<div id="heap" class="<%= data!=='Heap Sort' ? 'inactive' : '' %>">
+  <h1>Heap Sort</h1>
+  <p><b>Heap sort</b> is a comparison-based sorting algorithm. It can be thought of as an improved <a href="/Selection%20Sort">selection sort</a>. Unlike selection sort, heap sort does not waste 
+    time with a linear-time scan of the unsorted region; rather, heap sort maintains the unsorted region in a heap data structure to more quickly find the largest element in each step.
+  </p>
+  <p>
+    The algorithm can be divided into two parts. <mark>The first step, a max <a href="/Heap">heap</a> is built out of the data. Second step, a sorted array is created 
+      by repeatedly removing the largest element from the heap (the root of the heap), and inserting it into the array.</mark> The heap is updated after each removal to 
+    maintain the heap property. Once all objects have been removed from the heap, the result is a sorted array.
+  </p>
+  <b><p>Complexity</p></b>
+  <ul>
+    <b><li>Worst-case Performance: &#927(nlogn)</li></b>
+    <b><li>Best-case Performance: &#927(nlogn)</li></b>
+    <b><li>Average Performance: &#927(nlogn)</li></b>
+  </ul>
+</div>
+<div id="quick" class="<%= data!=='Quick Sort' ? 'inactive' : '' %>">
+  <h1>Quick Sort</h1>
+  <p><b>Quick sort</b> is sometimes called <b>partition-exchange sort</b>. It is an efficient, general-purpose and divide-and-conquer sorting algorithm. 
+    Overall, it is slightly faster than <a href="/Merge%20Sort">merge sort</a> and <a href="/Heap%20Sort">heap sort</a> for randomized data, particularly on larger distributions.
+  </p>
+  <p>
+    This sorting algorithm is based on a partitioning routine. First to <mark>pick a value, called a <b>pivot</b></mark>, that occurs in the range (the precise manner of 
+    choosing depends on the partition routine, and can involve randomness). Second to <mark>reorder it's elements, while determining a point of division</mark>, so that 
+    all elements with <mark>values less than the pivot come before the division</mark>, while all elements with <mark>values greater than the pivot come after it</mark>; elements that 
+    are equal to the pivot can go either way. Since at least one instance of the pivot is present, most partition routines ensure that the value that ends up 
+    at the point of division is equal to the pivot, and is now in its final position. Recursively apply same steps to the sub-range up to the point of division 
+    and to the sub-range after it, possibly excluding from both ranges the element equal to the pivot at the point of division.
+  </p>
+  <b><p>Complexity</p></b>
+  <ul>
+    <b><li>Worst-case Performance: &#927(n&#178;)</li></b>
+    <b><li>Best-case Performance: &#927(nlogn)</li></b>
+    <b><li>Average Performance: &#927(nlogn)</li></b>
+  </ul>
+</div>

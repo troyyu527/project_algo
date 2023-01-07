@@ -1,0 +1,42 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main{
+  display: flex;
+  position: relative;
+  width: 66vw;
+  height:70vh;
+  border: 5px solid black;
+  background-color:gainsboro;
+  padding: 10px;
+  svg{
+    width: 100%;
+    height:100%;
+    .arr{
+      
+      .compare polygon{
+        fill: greenyellow !important;
+      }
+      .swap polygon{
+        fill: red !important;
+      }
+      .sorted polygon{
+        fill: rgb(184, 76, 184) !important;
+      }
+      .insert polygon{
+        fill: brown !important;
+      }
+      .pivot polygon{
+        fill: yellow !important;
+      }
+      // .less polygon{
+      //   fill: lightsalmon !important;
+      // }
+      // .greater polygon{
+      //   fill: rgb(246, 92, 32) !important;
+      // }
+    }
+  }
+}

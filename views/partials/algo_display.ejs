@@ -1,0 +1,141 @@
+<main>
+  
+</main>
+
+<script>
+  console.log("load algo_display.js")
+  
+  function drawMap(data,start,goal,reset=false){
+    //draw
+    //if(!reset){
+      let svg= d3.select("main").append("svg").attr("width",width).attr("height",height)
+      svg.append("g").attr("class","map")
+      d3.select(".map").append("g").attr("class","terrain")
+      d3.select(".map").append("g").attr("class","post")
+
+    //}
+    
+    update(data,start,goal)
+
+    function update(data,start,goal){
+      let nodeData=data.nodes
+      let linkData=data.links
+      let startGroup = d3.select(".post").selectAll("g").data([start])
+      let goalGroup = d3.select(".post").selectAll("g").data([goal])
+      let nodeGroup = d3.select(".terrain").selectAll("g").data(nodeData,d=>d.name)
+      let linkGroup = d3.select(".map").selectAll("line").data(linkData,d=>d)
+      startGroup
+        .join(
+          function(enter){
+            let start = enter
+              .append("g")
+              .attr("transform",d=>`translate(${d.x},${d.y})`)
+              .call(drag())
+            start.append("image")
+              .attr("width",spacingX)
+              .attr("height",spacingY)
+              .attr("href","./img/pain-point.png")
+              
+          }
+        )
+      
+      goalGroup
+        .join(
+          function(enter){
+            let goal = enter
+              .append("g")
+              .attr("transform",d=>`translate(${d.x},${d.y})`)
+              .call(drag())
+            goal.append("image")
+              .attr("width",spacingX)
+              .attr("height",spacingY)
+              .attr("href","./img/finish-flag.png")
+          }
+        )
+      nodeGroup
+        .join(
+          function(enter){
+            let group = enter
+              .append("g")
+              .attr("class","node-group")
+              .attr("transform",d=>`translate(${d.x},${d.y})`)
+              .style("position","absolute")
+
+            let eleGroup = group
+              .append("g")
+              .style("position","absolute")
+              .attr("class",d=>`${d.name}`)
+              .on("click",obstacleEvent)
+            eleGroup
+              .append("rect")
+              .attr("class","node")
+              .attr("width",spacingX)
+              .attr("height",spacingY)
+              .attr("fill","darkgray")
+              .attr("stroke","black")
+              .attr("stroke-width",.2)
+            
+
+            return eleGroup
+          },
+          function(update){
+            return update
+              
+          },
+          function(exit){
+            return exit
+              //.remove()
+          }
+        )
+    }
+   
+    
+    
+    
+
+    function drag(){
+      function dragstarted(event, d) {
+        d.x = event.x
+        d.y = event.y
+        d3.select(this).attr("transform", `translate(${d.x},${d.y})`)
+      }
+      function dragged(event, d) {
+        //update nodes pos
+        let posX =Math.max(0,Math.min(width-spacingX,event.x))
+        let posY =Math.max(0,Math.min(height-spacingY,event.y))
+        d.x = posX
+        d.y = posY
+        d3.select(this).attr("transform", `translate(${d.x},${d.y})`)
+      }
+      function dragended(event, d) {
+        let visualX = d.x
+        let visualY = d.y
+        let matched=false
+        for(let i=0;i<dataModel.nodes.length;i++){
+          if((Math.abs(visualX-dataModel.nodes[i].x+(spacingX/2))<spacingX) 
+          && (Math.abs(visualY-dataModel.nodes[i].y+(spacingY/2))<spacingY)){
+            d.node=dataModel.nodes[i]
+            d.x=dataModel.nodes[i].x
+            d.y=dataModel.nodes[i].y
+            d.preX=dataModel.nodes[i].x
+            d.preY=dataModel.nodes[i].y
+            d3.select(this).attr("transform", `translate(${d.x},${d.y})`)
+            matched=true
+            break
+          }
+        }
+        if(!matched){
+          console.log("failed")
+          d.x=d.preX
+          d.y=d.preY
+          d3.select(this).attr("transform", `translate(${d.x},${d.y})`)
+        }
+      }
+      return d3
+        .drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended);
+    }
+  } 
+</script>

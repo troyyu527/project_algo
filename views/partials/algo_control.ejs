@@ -1,0 +1,36 @@
+<style>
+  .inactive{display:none !important}
+  .select-group select option .wall-img{
+      background: no-repeat url("./img/wall.png");
+      width: 20px;
+      height: 20px;
+      color: red;
+    }
+  button{
+    padding: 5px;
+  }
+</style>
+
+<button class="go">Go</button>
+<button class="random">Create Random Obstacle Layout</button>
+<button class="clear">Reset</button>
+<div class="select-group">
+  <label for="obstacle">Switch Obstacle</label>
+  <select name="obstacle" id="obstacle">
+    <option class="sand"> Sand(-3)</option>
+    <option class="wall" selected="selected"> Wall(X)</option>
+  </select>
+  
+</div>
+
+<div id="notice">
+  Notice: Drag Start/Goal icon to desired position. Click cell to toggle obstacle. Each cell weight=1. Sand weight=3, Wall is diable for passing.
+</div>
+
+<script>
+  console.log("load algo_control.js")
+  const className= "<%=dataType%>".split(" ").reduce((pre,cur)=>pre+cur,"");
+  
+  
+</script>
+  

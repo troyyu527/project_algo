@@ -1,0 +1,133 @@
+<style>
+  .inactive{display:none !important}
+</style>
+<input id="inputData" type="number" placeholder="Input data" min="-100" max="100">
+<input id="inputText" type="text" placeholder="Input data" maxlength="4" size="10">
+<div id="linkInput" class="inactive">
+  Connect/Remove <input id="source-node" type="text" placeholder="Source Node" size="10"> To
+  <input id="target-node" type="text" placeholder="Target Node" size="10"><br>
+</div>
+
+<input id="inputKey" type="text" placeholder="Input Key" maxlength="4">
+<input id="inputValue" type="text" placeholder="Input Value" maxlength="4">
+
+<button id="push" class="mini ui button blue" onclick="push()">Add/Push</button>
+<button id="rand" class="mini ui button blue" onclick="rand()">Add Random/Push</button>
+<button id="pop" class="mini ui button blue" onclick="pop()">Remove/Pop</button>
+<button id="unshift" class="mini ui button blue" onclick="unshift()">Add/Unshift</button>
+<button id="shift" class="mini ui button blue" onclick="shift()">Remove/Shift</button>
+<button id="set" class="mini ui button blue" onclick="setItem()">Set Item Key & Value</button>
+<button id="get" class="mini ui button blue" onclick="getItem()">Get Value from Key</button>
+<button id="get-link" class="mini ui button blue" onclick="getLink()">Add Link</button>
+<button id="del-node" class="mini ui button red" onclick="delNode()">Delete Node</button>
+<button id="del-link" class="mini ui button red" onclick="delLink()">Delete Link</button>
+<button id="travel" class="mini ui button brown" onclick="travel()">Travel</button>
+<button id="deleteData" class="mini ui button red" onclick="deleteData()">Delete Input</button>
+<button id="clear" class="mini ui button red" onclick="clearAll()">ClearAll</button>
+<div id="notice"></div>
+
+<script>
+  console.log("load data_control.js")
+  const className= "<%=dataType%>".split(" ").reduce((pre,cur)=>pre+cur,"");
+  
+  function push(){
+    let list =$(`.${className}`).children()
+    let include = null
+    if(className==="Graph"){
+      inputData = $("#inputText").val()
+    }else{
+      inputData = $("#inputData").val()
+    }
+    for(ele of list){
+      if(ele.innerText === inputData){
+        include = true
+        break
+      }
+    }
+    if(!include && inputData){
+      setBus(inputData,"push")
+    }
+  }
+  function unshift(){
+    let list =$(`.${className}`).children()
+    let include = null
+    inputData = $("#inputData").val()
+    for(ele of list){
+      if(ele.innerText === inputData){
+        include = true
+        break
+      }
+    }
+    if(!include && inputData){
+      setBus(inputData,"unshift")
+    }
+  }
+  function rand(){
+    let include = false
+    let count=0
+    if(className==="Tree"){
+      do{
+        count++
+        include=false
+        inputData= Math.floor(Math.random()*(RANDSIZE*2)-(RANDSIZE/2))
+        $(".tree-group").find(`._${inputData}`).length?include=true:"";
+      }while(include && count<RANDSIZE)
+    }else if(className==="Graph"){
+      do{
+        count++
+        include=false
+        inputData= ALPHABET[Math.floor(Math.random()*ALPHABET.length)]
+        $(".node-group").find(`._${inputData}`).length?include=true:"";
+      }while(include && count<ALPHABET.length)
+    }else{
+      do{
+        count++
+        include=false
+        inputData= Math.floor(Math.random()*(RANDSIZE*2)-(RANDSIZE/2))
+        $(`.${className}`).find(`._${inputData}`).length?include=true:"";
+      }while(include && count<RANDSIZE)
+    }
+    if(!include) setBus(inputData,"rand")
+  }
+  function pop(){
+    setBus("","pop")
+  }
+  function shift(){
+    setBus("","shift")
+  }
+  function setItem(){
+    let key = $("#inputKey").val();
+    let value = $("#inputValue").val();
+    if(key && value) setBus([key,value],"set");
+  }
+  function getItem(){
+    let key = $("#inputKey").val();
+    setBus(key,"get")
+  }
+  function getLink(){
+    let sNode = $("#source-node").val();
+    let tNode = $("#target-node").val();
+    setBus([sNode,tNode],"link")
+  }
+  function delNode(){
+    inputData = $("#inputText").val()
+    setBus(inputData,"delNode")
+  }
+  function delLink(){
+    let sNode = $("#source-node").val();
+    let tNode = $("#target-node").val();
+    setBus([sNode,tNode],"delLink")
+  }
+  function deleteData(){
+    inputData = $("#inputData").val()
+    setBus(inputData,"delete")
+  }
+  function travel(){
+    inputData = $("#inputText").val()
+    setBus(inputData.toUpperCase(),"travel")
+  }
+  function clearAll(){
+    setBus("","clear")
+  }
+</script>
+  

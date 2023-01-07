@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Data Visualization</title>
+   
+   <!-- CSS link (loading Semantic UI from a CDN) -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <style>
+     body { margin:5px; }
+   </style>
+</head>
+<body class="container">
+
+<header>
+  <div class="ui inverted menu">
+    <a class="item" href="/">
+      Home
+    </a>
+    <div class="ui simple dropdown link item">
+      <span class="text">Data Structure</span>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <%data.forEach((data)=> { %>
+          <a class="item" href="/<%= data.name %>"><%= data.name %></a>
+        <% }); %>
+      </div>
+    </div>
+    <div class="ui simple dropdown link item">
+      <span class="text">Algorithm</span>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <%algo.forEach((algo)=>{%>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text"><%=algo.name%></span>
+            <div class="menu">
+              <%algo.sub.name.forEach((name)=>{%>
+                <a class="item" href="/<%= name %>"><%= name %></a>
+              <%});%>
+            </div>
+          </div>
+        <%});%>
+      </div>
+    </div>
+  </div>
+</header>

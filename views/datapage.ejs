@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title><%=datapage%></title>
+  <style>
+    
+    body{
+      margin: 5px;
+      background-color: bisque !important;
+    }
+    .page{
+      display: flex;
+      background-color: bisque;
+    }
+    .content{
+      margin: 5px;
+      left:0;
+      width: 30vw;
+      height: 85vh;
+      overflow: auto;
+    }
+    .display{
+      margin: 5px;
+      right:0;
+      width: 65vw;
+      height: 85vh;
+      display: flex;
+      flex-direction: reverse;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link rel="icon" type="image/x-icon" href="/img/network.ico">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <!-- <script src="./js/jquery.transit.min.js"></script> -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <div class="ui inverted menu">
+    <a class="item" href="/">
+      Back Home
+    </a>
+  </div>
+  <div class="page">
+    <div class="content">
+      <% if(type==="data"){ %>
+        <%-include("./partials/data_contents",{data:datapage})%>
+      <% }else if(type==="sort"){%>
+        <%-include("./partials/sort_contents",{data:datapage})%>
+      <% }else{ %> 
+        <%-include("./partials/algo_contents",{data:datapage})%>
+      <% } %> 
+    </div>
+    <div class="display">
+      <% if(type==="data"){ %>
+        <%-include("./partials/display-data",{dataType:datapage})%>
+      <% }else if(type==="sort"){%>
+        <%-include("./partials/display-sort",{data:datapage})%>
+      <% }else{ %> 
+        <%-include("./partials/display-algo",{data:datapage})%>
+      <% } %> 
+      
+    </div>
+  </div>
+  
+  
+  
+</body>
+</html>

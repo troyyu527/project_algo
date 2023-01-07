@@ -1,0 +1,384 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --animate-duration: 1s;
+  --animate-delay: 0s;
+}
+main{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 10px;
+  background-color: rgb(175, 234, 215);
+  width: 65vw;
+  height:70vh;
+  border: 5px solid;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  .Stack{
+    counter-reset:index -1;
+    padding: 0 5px 1.5rem 5px;
+    display: flex;
+    flex-direction: column;
+    border-width: 5px;
+    border-top-width: 0;
+    border-color: black;
+    border-style: solid;
+    width: 7rem;
+    &::before{
+      right:50%;
+      content: "\2B09";
+      font-size: 30px;
+      display: flex;
+      position: absolute;
+      align-content: center;
+      padding-top: 30px;
+      width: 50px;
+      height: 50px;
+      border-top: 5px solid black;
+      transform-origin: top left;
+      transform: rotate(-135deg);
+    }
+    
+    &::after{
+      position: absolute;
+      display: flex;
+      align-content: center;
+      justify-content:end;
+      padding-top: 30px;
+      left:50%;
+      content: "\2B0B";
+      font-size: 30px;
+      width: 50px;
+      height: 50px;
+      border-top: 5px solid black;
+      transform-origin: top right;
+      transform: rotate(135deg);
+    }
+
+    .element{
+      counter-increment: index;
+      display: flex;
+      top: 20px;
+      margin: 3px;
+      background-color: antiquewhite;
+      align-items: center;
+      justify-content: space-around;
+      font-size: large;
+      font-weight: bold;
+      border: 2px solid;
+      border-radius: 40% 10px 10px 40%;
+      position:relative;
+      padding:5px 5px 5px 0;
+      flex-direction: row;
+      width: 5rem;
+      height: 2rem;
+      &::before{
+        left:0;
+        display: flex;
+        border: 2px solid antiquewhite;
+        border-radius: 50%;
+        content: counter(index);
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        font-size:10%;
+        width: 1.3rem;
+        height: 1.3rem;
+        color: white;
+        font-weight: lighter;
+      }
+    }
+    
+  }
+  .Queue{
+    counter-reset:index -1;
+    padding: 5px;
+    display: flex;
+    flex-direction: row-reverse;
+    border-width: 5px;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-color: black;
+    border-style: solid;
+    width: 75%;
+    height: 80px;
+    &::before{
+      left:0;
+      content: "\2B95";
+      padding-top: 20px;
+      font-size: 30px;
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+    }
+    &::after{
+      position: absolute;
+      display: flex;
+      align-content: center;
+      padding-top: 20px;
+      right:-10px;
+      content: "\2B95";
+      font-size: 30px;
+      width: 50px;
+      height: 50px;
+    }
+
+    .element{
+      counter-increment: index;
+      display: flex;
+      top: 0;
+      margin: 3px;
+      background-color: antiquewhite;
+      align-items: center;
+      justify-content: center;
+      font-size: large;
+      font-weight: bold;
+      border: 2px solid;
+      border-radius: 40% 40% 10px 10px;
+      position:relative;
+      padding:5px 5px 5px 5px;
+      flex-direction: column;
+      width: 2.5rem;
+      height: 4rem;
+      &::before{
+        top:0;
+        display: flex;
+        border: 2px solid antiquewhite;
+        border-radius: 50%;
+        content: counter(index);
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        font-size: small;
+        width: 1.5rem;
+        height: 1.5rem;
+        color: white;
+        font-weight: lighter;
+      }
+    }
+    
+  }
+  .LinkedList{
+    counter-reset:index -1;
+    display: flex;
+    flex-direction: row;
+    .element{
+      counter-increment: index;
+      display: flex;
+      margin: 3px 7px;
+      background-color: antiquewhite;
+      align-items: center;
+      justify-items: center;
+      justify-content: space-between;
+      //@at-root: large;
+      font-weight: bold;
+      border: 2px solid;
+      font-size: 10px;
+      position:relative;
+      padding:5px 0 5px 0;
+      flex-direction: row;
+      width: 50px;
+      height: 2rem;
+      &::before{
+        display: flex;
+        border: 2px solid antiquewhite;
+        border-radius: 50%;
+        content: counter(index);
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        width: 1.1rem;
+        height: 1.3rem;
+        color: white;
+        font-weight: lighter;
+      }
+      &:not(:last-child)::after{
+        content: "\2022 \2B95";
+        font-size: large;
+        width: 1rem;
+        height:28px;
+        display: flex;
+        align-items:baseline;
+        position: relative;
+        padding-left: 1px;
+        border-left-width: 2px;
+        border-right-width: 0;
+        border-top-width: 2px;
+        border-bottom-width: 2px;
+        border-style: solid;
+        border-color:transparent black ;
+      }
+      &:last-child::after{
+        content: "\2022";
+        font-size: large;
+        width: 1rem;
+        height:28px;
+        display: flex;
+        align-items:baseline;
+        position: relative;
+        padding-left: 1px;
+        border-left-width: 2px;
+        border-right-width: 0;
+        border-top-width: 2px;
+        border-bottom-width: 2px;
+        border-style: solid;
+        border-color:transparent black ;
+      }
+    }
+    
+  }
+  .Array{
+    counter-reset:index -1;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 90%;
+    
+    &::before{
+      left:0;
+      content: "[";
+      font-size: xx-large;
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      padding-right: 10px;
+      
+    }
+    &::after{
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right:0;
+      content: "]";
+      font-size: xx-large;
+      width: 50px;
+      height: 50px;
+      padding-left: 10px;
+    }
+    .element{
+      counter-increment: index;
+      display: flex;
+      position: relative;
+      margin: 2px 2px;
+      background-color: antiquewhite;
+      align-items: center;
+      justify-content: center;
+      font-size: large;
+      font-weight: bold;
+      border: 2px solid;
+      padding:20px 0 0 0;
+      border-radius: 50% 50% 0 0;
+      width: 2.3rem;
+      height: 3rem;
+      &::before{
+        top:3px;
+        position: absolute;
+        display: flex;
+        border: 2px solid antiquewhite;
+        border-radius: 50%;
+        content: counter(index);
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        font-size: 50%;
+        width: 1.2rem;
+        height: 1.2rem;
+        color: white;
+        font-weight: lighter;
+      }
+    }
+  }
+  .HashTable{
+    counter-reset:index -1;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: max-content;
+    // width: 100%;
+    .box{
+      counter-increment: index;
+      min-width: 2rem;
+      min-height: 3rem;
+      max-height:30rem;
+      background-color: antiquewhite;
+      border: 2px solid black;
+      border-right-width:0 ;
+      &:last-child{
+        border-right-width:2px;
+      }
+      &::before{
+        display: flex;
+        justify-content: center;
+        border-bottom: 2px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-style: solid;
+        border-color: black;
+        background-color: azure;
+        content: counter(index);
+      }
+      .element{
+        display: flex;
+        white-space: normal;
+        position: relative;
+        bottom: 0;
+        margin: 3px 2px;
+        align-items: flex-end;
+        justify-content: center;
+        font-size: large;
+        font-weight: bold;
+        border: 2px solid black;
+        padding:5px 0;
+        min-width: 2rem;
+        min-height: 1rem;  
+      }
+    }
+  }
+  
+  .Tree {
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .Graph{
+    position: absolute;
+    //at-root: 10;
+    svg{
+      .node-group{
+         cursor: pointer;
+      }
+    }
+  }
+
+    // svg .nodes{
+    //   cursor: pointer;
+    // }
+  
+  .active {
+    stroke: #000;
+    stroke-width: 2px;
+  }
+  
+  
+}
+

@@ -1,0 +1,255 @@
+
+<style>
+  ul{margin-left: 20px;}
+  .inactive{display:none;}
+  p{margin: 5px 0;}
+</style>
+
+<div id="array" class="<%= data!=='Array' ? 'inactive' : '' %>">
+  <h1>Array</h1>
+  <p>An <b>array</b>  is a data structure consisting of a collection of elements 
+    (values or variables), each identified by at least one array index or key. 
+    An array is stored such that the position of each element can be computed from 
+    its index tuple by a mathematical formula.
+  </p>
+  <p>Operations (by JavaScript)</p>
+  <ul>
+    <li><b>Push:</b> Adding an element to the rear of the array.</li>
+    <li><b>Pop:</b> Removing an element from the rear of the array.</li>
+    <li><b>Unshift:</b> Adding an element to the front of the array.</li>
+    <li><b>Shift:</b> Removing an element from the front of the array.</li>
+  </ul>
+  <p>
+    Array-based implementations of other data structures are frequently simple 
+    and <mark>space-efficient</mark> ( implicit data structures ), requiring little space 
+    overhead , but may have <mark>poor space complexity</mark>, particularly when modified, 
+    compared to tree-based data structures (compare a sorted array to a search tree ).
+  </p>
+</div>
+<div id="graph" class="<%= data!=='Graph' ? 'inactive' : '' %>">
+  <h1>graph</h1>
+  <p>A <b>graph</b> is an abstract data type that is meant to implement the 
+    undirected graph and directed graph concepts from the field of graph 
+    theory within mathematics.
+  </p>
+  <p>Applications</p>
+  <ul>
+    <li>Machine learning</li>
+    <li>Social network analysis</li>
+    <li>Mapping system</li>
+  </ul> <b></b>
+  <p>
+    A graph data structure consists of a finite (and possibly mutable) set 
+    of vertices (also called nodes or points), together with a set of <b>unordered 
+      pairs</b> of these vertices for an <b>undirected graph</b>  or a set of <b>ordered pairs</b> for 
+    a <b>directed graph</b>. These pairs are known as edges (also called links or lines), 
+    and for a directed graph are also known as edges but also sometimes arrows or arcs. 
+  </p>
+  <p><b>Weighted graph:</b></p>
+  <p>
+    A weighted graph is a graph in which a number (the weight) is assigned to each edge.Such weights might represent for example costs, lengths or capacities, depending on the problem at hand.
+  </p>
+  
+  
+</div>
+<div id="hash-table" class="<%= data!=='Hash Table' ? 'inactive' : '' %>">
+  <h1>Hash Table</h1>
+  <p>A <b>hash table</b> also known as <b>hash map</b>, is a data structure that implements
+    an associative array or dictionary. It is an abstract data type that maps keys to values. 
+    <mark>A hash table uses a hash function to compute an index</mark>, also called a hash code, into an 
+    array of buckets or slots, from which the desired value can be found. During lookup, the 
+    key is hashed and the resulting hash indicates where the corresponding value is stored.
+  </p>
+  <p>
+    <mark>
+      The hash function will assign each key to a unique bucket, but not always. And it causes 
+      hash collisions where the hash function generates the same index for more than one key.
+    </mark> 
+  </p>
+  <p>Collision resolution</p>
+  <ul>
+    <li><b>Separate chaining:</b> 
+      <p>
+        Building a linked list with key and value pair for each search array index. The collided 
+        items are chained together through a single linked list, which can be traversed to access 
+        the item with a unique search key.
+      </p>
+    </li>
+    <li><b>Open addressing:</b>
+      <p>
+        When a new entry has to be inserted, the buckets are examined, starting with the 
+        hashed-to slot and proceeding in some probe sequence, until an unoccupied slot is found.
+      </p>
+    </li>
+  </ul>
+  <p>
+    In many situations, hash tables turn out to be on average more efficient than search trees or 
+    any other table lookup structure.
+  </p>
+</div>
+<div id="heap" class="<%= data!=='Heap' ? 'inactive' : '' %>">
+  <h1>Heap</h1>
+  <p>A <b>heap</b> is a specialized <b>tree-based</b> data structure which is essentially 
+    an almost complete tree that satisfies the heap property:<br> In a <b>max heap</b>, for 
+    any given node C, if P is a parent node of C, then the key (the value) of <mark>P is 
+      greater than or equal to the key of C.</mark><br> In a <b>min heap</b>, the key of <mark>P is less than 
+      or equal to the key of C.</mark> The node at the "top" of the heap (with no parents) is 
+    called the root node.
+  </p>
+  <p>Operations</p>
+  <ul>
+    <li><b>Insertion:</b> Adding the new element at the end of the heap, in the first available free space. 
+      If this will violate the heap property, sift up the new element until the heap 
+      property has been reestablished.</li>
+    <li><b>Extraction:</b> Removing the root and insert the last element of the heap 
+      in the root. If this will violate the heap property, sift down the new root 
+      to reestablish the heap property.</li>
+    <li><b>Replacement:</b> Removing the root and put the new element in the root and sift down.</li>
+  </ul>
+  <p>Actions</p>
+  <ul>
+    <li><b>Heapify</b> is the way to create a heap out of given array of elements.</li>
+    <li><b>Sift Down</b> starts with a value in any node. It moves the value down the tree by 
+      successively exchanging the value with the smaller of its two children. 
+      The operation continues until the value reaches a position where it is less than both its children, or, failing that, until it reaches a leaf.</li>
+    <li><b>Sift Up</b> is the exact opposite of Sift Down.</li>
+  </ul>
+  <p>
+     
+  </p>
+  
+</div>
+<div id="linked-list" class="<%= data!=='Linked List' ? 'inactive' : '' %>">
+  <h1>Linked list</h1>
+  <p>A <b>linked list</b> is a linear collection of data elements whose
+      order is not given by their physical placement in memory. Instead, 
+      <mark>each element points to the next</mark>. It is a data structure consisting 
+      of a collection of nodes which together represent a sequence. In its 
+      most basic form, <mark>each node contains: data, and a reference (in other 
+        words, a link) to the next node in the sequence.</mark> 
+  </p>
+  <p>Types</p>
+  <ul>
+    <li><b>Singly linked list</b>:
+      <p>
+        Singly linked lists contain nodes which have a 'value' field as well as 
+        'next' field, which points to the next node in line of nodes. Operations that 
+        can be performed on singly linked lists include insertion, deletion and traversal.
+      </p>
+    </li>
+    <li><b>Doubly linked list</b>:
+      <p>
+        In a 'doubly linked list', each node contains, besides the next-node link, a 
+        second link field pointing to the 'previous' node in the sequence. The two links 
+        may be called 'forward('s') and 'backwards', or 'next' and 'prev'('previous').
+      </p>
+    </li>
+    <li><b>Circular linked list</b>:
+      <p>
+        In the last node of a list, the link field often contains a null reference, a special 
+        value is used to indicate the lack of further nodes. A less common convention is to 
+        make it point to the first node of the list; in that case, the list is said to be 
+        'circular' or 'circularly linked'; otherwise, it is said to be 'open' or 'linear'. 
+        It is a list where the last pointer points to the first node.
+      </p>
+    </li>
+  </ul>
+  <p>
+    A linked list can be easily insert or remove elements without reallocation or reorganization 
+    of the entire structure compare with a conventional array. Because the 
+    data items need not be stored contiguously in memory or on disk, while restructuring 
+    an array at run-time is a much more expensive operation. <mark>Linked lists allow insertion 
+      and removal of nodes at any point in the list</mark>, and allow doing so with a constant number 
+    of operations by keeping the link previous to the link being added or removed in memory 
+    during list traversal.
+  </p>
+  <p>
+    Linked lists do not allow random access to the data or any form of efficient indexing, 
+    many basic operations—such as obtaining the last node of the list, finding a node that 
+    contains a given datum, or locating the place where a new node should be inserted—may 
+    require iterating through most or all of the list elements.
+  </p>
+</div>
+<div id="queue" class="<%= data!=='Queue' ? 'inactive' : '' %>">
+  <h1>Queue</h1>
+  <p>A <b>queue</b> is a collection of entities that are maintained in a 
+    sequence and can be modified by the addition of entities at one end of 
+    the sequence and the removal of entities from the other end of the sequence
+  </p>
+  <p>Operations</p>
+  <ul>
+    <li><b>Enqueue:</b> Adding an element to the rear of the queue.</li>
+    <li><b>Dequeue:</b> Removing an element from the front of the queue.</li>
+  </ul>
+  <p>
+    The order in which an element added to or removed from a queue
+      is described as <b>first in, first out</b>, referred to by the acronym <b>FIFO</b>.
+  </p>
+  <p><b>Priority Queue:</b></p>
+  <p>
+    A priority queue is a special type of queue in which each element is associated with a priority value. 
+    Higher priority elements are served first. However, if elements with the same priority occur, 
+    they are served according to their order in the queue.<br>
+    Priority queue can be implemented using an array, a linked list, a heap data structure, or a binary search tree. 
+    Among these data structures, <mark>heap data structure provides an efficient implementation of priority queues.</mark> 
+  </p>
+</div>
+<div id="stack" class="<%= data!=='Stack' ? 'inactive' : '' %>">
+  <h1>Stack</h1>
+  <p>A <b>stack</b> is an abstract data type that serves as a 
+    collection of elements.
+  </p>
+  <p>Operations</p>
+  <ul>
+    <li><b>Push:</b> Adding an element to the collection</li>
+    <li><b>Pop:</b> Removing the most recently added element that was not yet removed.</li>
+  </ul>
+  <p>
+    The order in which an element added to or removed from a stack
+      is described as <b>last in, first out</b>, referred to by the acronym <b>LIFO</b>.
+  </p>
+  <p>
+    A stack is needed to implement depth-first search.
+  </p>
+</div>
+<div id="tree" class="<%= data!=='Tree' ? 'inactive' : '' %>">
+  <h1>Tree</h1>
+  <p>A <b>tree</b> is a widely used abstract data type that represents 
+    a hierarchical tree structure with <b>a set of connected nodes</b>. Each 
+    node in the tree can be connected to many children (depending on the 
+    type of tree), but <mark>must be connected to exactly one parent, except for 
+      the root node, which has no parent.</mark> A node is a structure which may contain 
+    data and <b>connections to other nodes</b>, sometimes called <b>edges</b> or <b>links</b>.
+  </p>
+  <p>Applications</p>
+  <ul>
+    <li>File systems</li>
+    <li>Document Object Models of XML and HTML documents</li>
+  </ul>
+  <p>
+    <b>Binary trees</b> are a commonly used type, which constrain the number of children for each parent to exactly two.
+  </p>
+  <p>
+    <b>Binary Search Tree</b> is an extension of binary tree, which <mark>nodes are arranged in total order.</mark> The nodes with keys <b>greater</b> than any particular node is stored on the <b>right</b> sub-trees and the ones with equal to or <b>less</b> than are stored on the <b>left</b> sub-tree.
+  </p>
+  <p>Binary Search Tree Traversal</p>
+  <ul>
+    <li><b>Depth-First Search</b></li>
+      <ul>
+        <li><b>Pre-Order:</b> 1. Visit the current node.
+          2. Recursively traverse the current node's left subtree.
+          3. Recursively traverse the current node's right subtree.</li>
+        <li><b>Post-order:</b> 1. Recursively traverse the current node's left subtree.
+          2. Recursively traverse the current node's right subtree.
+          3. Visit the current node.</li>
+        <li><b>In-Order:</b> 1. Recursively traverse the current node's left subtree.
+          2. Visit the current node.
+          3. Recursively traverse the current node's right subtree.</li>
+      </ul>
+    <li><b>Breadth-First Search</b></li>
+      <ul>
+        <li><b>Level-Order:</b> The search tree is broadened as much as possible before going to the next depth.</li>
+        
+      </ul>
+  </ul>
+</div>
